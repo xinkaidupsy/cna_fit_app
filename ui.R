@@ -76,7 +76,7 @@ navbarPage("Confirmatory Network Analysis Fit Measures", theme = shinytheme("cos
                     # *--- contact information --- 
                     hr(),
                     HTML(paste(
-                      "Please contact the app author Xinkai Du for questions or error reporting:",
+                      "This app is made by Xinkai Du. For questions or error reporting, please contact via:",
                       tags$a(href = "mailto:xinkai.du.xd@gmail.com",
                              "xinkai.du.xd@gmail.com")
                     ))
