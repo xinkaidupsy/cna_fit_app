@@ -1,0 +1,26 @@
+{
+    "id": "DD64551A",
+    "path": "~/Documents/Git/panelGVAR_fit_measures/cna_fit_app/ui.R",
+    "project_path": "ui.R",
+    "type": "r_source",
+    "hash": "2551889170",
+    "contents": "",
+    "dirty": false,
+    "created": 1735904680666.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "3,54",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1736125872,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1736125873003,
+    "read_only": false,
+    "read_only_alternatives": []
+}

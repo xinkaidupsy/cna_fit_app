@@ -1,0 +1,14 @@
+# Sample factor
+factor_data <- factor(c("abc123", "def456", "ghi789"))
+
+# Convert factor to character
+char_data <- as.character(factor_data)
+
+# Use regex to extract numeric parts
+# Here we're using only the numeric characters found in each element
+library(stringr)
+
+numeric_data <- as.numeric(str_extract(char_data, "\\d+"))
+
+# Output the numeric data
+print(numeric_data)
