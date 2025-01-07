@@ -6,5 +6,5 @@ To run:
 
 ```
 library(shiny)
-runGitHub("xinkaidupsy/cna_fit_app”)
+runGitHub("xinkaidupsy/cna_fit_app")
 ```
