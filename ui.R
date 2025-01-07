@@ -191,7 +191,7 @@ navbarPage("Confirmatory Network Analysis Fit Measures", theme = shinytheme("cos
                         hr(),
 
                         # *--- choose dataset ---
-                        selectInput("dt_mis_condition", "Choose the misspecification condition",
+                        selectInput("dt_mis_condition_ancova", "Choose the misspecification condition",
                                     choices = c("Simulation Study (2): Mean trends" = "dt_mean",
                                                 "Simulation Study (3): Misspecified temporal networks" = "dt_rt",
                                                 "Simulation Study (4): Misspecified contemporaneous networks" = "dt_rc",

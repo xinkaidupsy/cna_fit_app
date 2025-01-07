@@ -105,10 +105,10 @@ shinyServer(function(input, output) {
   # *--- data source for ANCOVA ---
 
   dt_ancova_react <- reactive({
-      if (input$dt_mis_condition %in% c("dt_rt", "dt_rc")) {
-        dt[[input$dt_mis_condition]][condition == input$true_model & type == "Confirmatory",][, type := NULL]
+      if (input$dt_mis_condition_ancova %in% c("dt_rt", "dt_rc")) {
+        dt[[input$dt_mis_condition_ancova]][condition == input$true_model & type == "Confirmatory",][, type := NULL]
       } else {
-        dt[[input$dt_mis_condition]][condition == input$true_model,]
+        dt[[input$dt_mis_condition_ancova]][condition == input$true_model,]
       }
   })
   
@@ -123,10 +123,10 @@ shinyServer(function(input, output) {
       sub(pattern = ".* = ", replacement = "") %>% as.numeric
     
     # conditions (mismatch conditions don't have type as predictor)
-    if (input$dt_mis_condition %in% c("dt_rt", "dt_rc")) {
-      conditions <- conditions_ls[[input$dt_mis_condition]][-2]
+    if (input$dt_mis_condition_ancova %in% c("dt_rt", "dt_rc")) {
+      conditions <- conditions_ls[[input$dt_mis_condition_ancova]][-2]
     } else {
-      conditions <- conditions_ls[[input$dt_mis_condition]]
+      conditions <- conditions_ls[[input$dt_mis_condition_ancova]]
     }
 
     # formulas
@@ -149,7 +149,7 @@ shinyServer(function(input, output) {
     ANCOVA <- rbindlist(ANCOVA, idcol = "Metrics")
     
     # just keep the first identifier of each table
-    if (input$dt_mis_condition %in% c("dt_rt", "dt_rc")) {
+    if (input$dt_mis_condition_ancova %in% c("dt_rt", "dt_rc")) {
       
       ANCOVA <- ANCOVA[, lapply(.SD, as.character)][
         # round numbers with roundif, except for the residual row
@@ -178,7 +178,7 @@ shinyServer(function(input, output) {
     p.etasq <- dcast(ANCOVA, formula = Metrics ~ term, value.var = "partial.etasq")     
   
     # remove unncessary columns & order to find the index that was the most sensitive to mean_trends and least to covariates
-    if (input$dt_mis_condition == "dt_mean") {
+    if (input$dt_mis_condition_ancova == "dt_mean") {
       
       p.etasq <- p.etasq[, Residuals := NULL][
         order(-mean_trend_factor,
@@ -205,16 +205,16 @@ shinyServer(function(input, output) {
     }
     
     # reorder
-    if (input$dt_mis_condition == "dt_rt") {
+    if (input$dt_mis_condition_ancova == "dt_rt") {
       p.etasq <- p.etasq[,c("Metrics","rewire_temporal_factor", "n_node_factor", 
                  "n_person_factor", "n_time_factor")]
-    } else if (input$dt_mis_condition == "dt_rc") {
+    } else if (input$dt_mis_condition_ancova == "dt_rc") {
       p.etasq <- p.etasq[,c("Metrics","rewire_contemporaneous_factor", "n_node_factor", 
                  "n_person_factor", "n_time_factor")]
-    } else if (input$dt_mis_condition == "dt_nt") {
+    } else if (input$dt_mis_condition_ancova == "dt_nt") {
       p.etasq <- p.etasq[,c("Metrics","rewire_temporal_factor", "n_node_factor", 
                             "n_person_factor", "n_time_factor", "type")]
-    } else if (input$dt_mis_condition == "dt_nc") {
+    } else if (input$dt_mis_condition_ancova == "dt_nc") {
       p.etasq <- p.etasq[,c("Metrics","rewire_contemporaneous_factor", "n_node_factor", 
                             "n_person_factor", "n_time_factor", "type")]
     } else {
@@ -223,9 +223,9 @@ shinyServer(function(input, output) {
     }
     
     # assign more informative colnames 
-    if (input$dt_mis_condition == "dt_mean") {
+    if (input$dt_mis_condition_ancova == "dt_mean") {
       colNames <- c("Mean trend", "Number of nodes", "Sample size", "Number of waves", "Model type")
-    } else if (input$dt_mis_condition %in% c("dt_rt", "dt_rc")) {
+    } else if (input$dt_mis_condition_ancova %in% c("dt_rt", "dt_rc")) {
       colNames <- c("Rewire probability", "Number of nodes", "Sample size", "Number of waves")
     } else {
       colNames <- c("Rewire probability", "Number of nodes", "Sample size", "Number of waves", "Model type")
