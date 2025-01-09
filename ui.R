@@ -59,9 +59,9 @@ navbarPage("Confirmatory Network Analysis Fit Measures", theme = shinytheme("cos
                                    "In response to the reviewer's feedback,",
                                    "we also display the results for two alternative true model setups",
                                    "to showcase the robustness of our results.",
-                                   "In total, there are three setups"))),
+                                   "In total, there are three setups:"))),
                       tags$ul(
-                        tags$li(tags$b("Original (propPos = 0.8 & nei = 1)"), 
+                        tags$li(tags$b("Original (propPos = 0.5 & nei = 1)"), 
                                 "In the original study,",
                                 "we set the proportion of positive edges to be 0.5", 
                                 "and number of neighbors for each node to be 1"),
