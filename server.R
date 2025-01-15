@@ -186,7 +186,7 @@ shinyServer(function(input, output) {
               n_person_factor, 
               n_time_factor)] 
         
-    } else if (input$dt_mis_condition %in% c("dt_rt", "dt_nt")) {
+    } else if (input$dt_mis_condition_ancova %in% c("dt_rt", "dt_nt")) {
       
       p.etasq <- p.etasq[, Residuals := NULL][
         order(-rewire_temporal_factor,
@@ -195,7 +195,7 @@ shinyServer(function(input, output) {
               n_time_factor)]
       
     } else {
-      
+
       p.etasq <- p.etasq[, Residuals := NULL][
         order(-rewire_contemporaneous_factor,
               n_node_factor, 

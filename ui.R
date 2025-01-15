@@ -69,7 +69,7 @@ navbarPage("Confirmatory Network Analysis Fit Measures", theme = shinytheme("cos
                                 "A reviewer suggested to check the results",
                                 "if we set the proportion of positive edges in the networks to be 0.8"),
                         tags$li(tags$b("Setting nei = 2:"), 
-                                "Check the results if we change number of neighbors for each node to be 2")
+                                "Check the results if we change number of neighbors for each node to be 2.")
                       )
                     ),
                     
@@ -118,6 +118,9 @@ navbarPage("Confirmatory Network Analysis Fit Measures", theme = shinytheme("cos
                                       choices = c("6 nodes" = "p = 6",
                                                   "12 nodes" = "p = 12"))
                         )
+                        # hr(),
+                        # numericInput('width_boxplot', 'Width', value = 15, min = 1),
+                        # numericInput('height_boxplot', 'Height', value = 10, min = 1),
                         
                       ), # end sidebar panel
                       
