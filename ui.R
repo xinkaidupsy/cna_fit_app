@@ -115,8 +115,8 @@ navbarPage("Confirmatory Network Analysis Fit Measures", theme = shinytheme("cos
                         conditionalPanel(
                           condition = "input.dt_mis_condition != 'dt_null'",
                           selectInput("n_nodes", "Choose the number of nodes",
-                                      choices = c("6 nodes" = "p = 6",
-                                                  "12 nodes" = "p = 12"))
+                                      choices = c("6 nodes" = "P = 6",
+                                                  "12 nodes" = "P = 12"))
                         )
                         # hr(),
                         # numericInput('width_boxplot', 'Width', value = 15, min = 1),
@@ -163,8 +163,8 @@ navbarPage("Confirmatory Network Analysis Fit Measures", theme = shinytheme("cos
                         conditionalPanel(
                           condition = "input.dt_mis_condition != 'dt_null'",
                           selectInput("n_nodes", "Choose the number of nodes",
-                                      choices = c("6 nodes" = "p = 6",
-                                                  "12 nodes" = "p = 12"))),
+                                      choices = c("6 nodes" = "P = 6",
+                                                  "12 nodes" = "P = 12"))),
                         
                         # *--- select the cutoff values ---
                         tags$div(tags$b("Set cutoff values:")),

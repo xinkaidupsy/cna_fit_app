@@ -44,7 +44,7 @@ line_colors <- RColorBrewer::brewer.pal(9, "Paired")
 # *--- boxplot function ---
 box_plotter <- function(simres, metric = c("NFI", "PNFI", "TLI", "NNFI", "RFI", "RNI", "IFI", "RMSEA","CFI"), 
                         xaxis = "n_person_factor", x_facet, y_facet, color, xlab="",ylab="",legend_title="",legend.position ="right"){
-
+  
   # convert to longer
   longer <- simres %>% tidyr::pivot_longer(NFI:RMSEA, names_to = "metric")
   
